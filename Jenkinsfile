@@ -2,15 +2,15 @@
 node {
     def sfcli = "\"C:\\sf\\bin\\sf.cmd\""
 
-    // Dev Hub credentials
+    // Dev Hub credentials from environment variables
     def HUB_ORG = env.HUB_ORG_DH
     def SFDC_HOST = env.SFDC_HOST_DH
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
     def CONNECTED_APP_KEY = env.CONNECTED_APP_CONSUMER_KEY_DH
 
-    // Scratch org aliases
-    def SCRATCH_ORG_1 = 'ScratchOrg1'
-    def SCRATCH_ORG_2 = 'ScratchOrg2'
+    // Scratch org aliases from Jenkins environment variables
+    def SCRATCH_ORG_1 = env.SCRATCH_ORG_1_ALIAS   // Example: 'ScratchOrg1'
+    def SCRATCH_ORG_2 = env.SCRATCH_ORG_2_ALIAS   // Example: 'ScratchOrg2'
 
     stage('Checkout Source') {
         checkout scm
