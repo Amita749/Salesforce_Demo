@@ -9,7 +9,7 @@ node {
     def CONNECTED_APP_KEY = env.CONNECTED_APP_CONSUMER_KEY_DH
 
     // Scratch orgs from environment
-    def SCRATCH_ORG_1 = 'test-jq3rrrmpq7zc@example.com'
+    def SCRATCH_ORG_1 = 'test-n64neb1z2clc@example.com'
     def SCRATCH_ORG_2 = 'test-jq3rrrmpq7zc@example.com'
 
     stage('Checkout Source') {
