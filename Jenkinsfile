@@ -26,9 +26,9 @@ node {
         }
 
         stage('Create Scratch Org') {
-            def rc = bat returnStatus: true, script: "${sfcli} org create scratch --definition-file config/project-scratch-def.json --set-default --alias ${SCRATCH_ORG_ALIAS} --duration-days 7"
+            def rc = bat returnStatus: true, script: "${sfcli} org create scratch --definition-file config/dev-scratch-def.json --set-default --alias ${SCRATCH_ORG_ALIAS} --duration-days 7"
             if (rc != 0) {
-                error "❌ Failed to create scratch org ${SCRATCH_ORG_ALIAS}"
+                error "❌ Failed to create scratch org '${SCRATCH_ORG_ALIAS}'"
             }
             echo "✅ Scratch org '${SCRATCH_ORG_ALIAS}' created"
         }
@@ -41,7 +41,7 @@ node {
             echo "✅ Deployment successful to '${SCRATCH_ORG_ALIAS}'"
         }
 
-        // Optional: Run tests
+        // Optional: Run Apex Tests
         stage('Run Apex Tests (Optional)') {
             def rc = bat returnStatus: true, script: "${sfcli} apex run test --target-org ${SCRATCH_ORG_ALIAS} --wait 10 --result-format human"
             if (rc != 0) {
@@ -50,10 +50,7 @@ node {
             echo "✅ Apex tests passed"
         }
 
-        // Optional: Delete scratch org after pipeline
-        stage('Delete Scratch Org') {
-            bat "${sfcli} org delete scratch --target-org ${SCRATCH_ORG_ALIAS} --no-prompt"
-            echo "🧹 Scratch org '${SCRATCH_ORG_ALIAS}' deleted"
-        }
+       
     }
 }
+
