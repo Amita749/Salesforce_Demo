@@ -1,6 +1,5 @@
 {
-  "orgName": "MyScratchOrg1",
+  "orgName": "My Company",
   "edition": "Developer",
-  "features": []
+  "features": ["AuthorApex"]
 }
-
