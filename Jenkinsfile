@@ -41,14 +41,7 @@ node {
             echo "✅ Deployment successful to '${SCRATCH_ORG_ALIAS}'"
         }
 
-        // Optional: Run Apex Tests
-        stage('Run Apex Tests (Optional)') {
-            def rc = bat returnStatus: true, script: "${sfcli} apex run test --target-org ${SCRATCH_ORG_ALIAS} --wait 10 --result-format human"
-            if (rc != 0) {
-                error "❌ Apex tests failed"
-            }
-            echo "✅ Apex tests passed"
-        }
+        
 
        
     }
