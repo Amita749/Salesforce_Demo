@@ -9,8 +9,8 @@ node {
     def CONNECTED_APP_KEY = env.CONNECTED_APP_CONSUMER_KEY_DH
 
     // Scratch org aliases from Jenkins environment variables
-    def SCRATCH_ORG_1 = env.SCRATCH_ORG_1_ALIAS   // Example: 'ScratchOrg1'
-    def SCRATCH_ORG_2 = env.SCRATCH_ORG_2_ALIAS   // Example: 'ScratchOrg2'
+    def SCRATCH_ORG_1 = 'ScratchOrg1'
+    def SCRATCH_ORG_2 = 'ScratchOrg2'
 
     stage('Checkout Source') {
         checkout scm
